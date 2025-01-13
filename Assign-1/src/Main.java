@@ -6,8 +6,6 @@ public class Main {
 //3. Calculate the average temperature
 //4. Given the average temperature, how many of the numbers in the line 2 are above the average temperature?
 
-
-
         //User Input
 
         //Calculate Average
