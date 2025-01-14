@@ -45,5 +45,16 @@ public class Main {
         System.out.println("Average Temperature: " + avgTemp);
 
         //Return numbers above average
+        System.out.println("Temperatures above average: ");
+        for (int i : tempArray) {
+            try {
+                if (i > avgTemp) {
+                    System.out.println(i);
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Array not accessible.");
+        }
+        }
     }
 }
