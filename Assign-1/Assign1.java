@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class Assign1 {
     public static void main(String[] args) {
         //Calculate the average temperature, and give how many days are above the average temperature
         //1. Take an input from the user (eg. 5)
