@@ -9,7 +9,7 @@ public class Assign2 {
         //2. Cancel seats
         //3. Retrieve initial seating charting
 
-//        int[][] emptyTheatreSeats = {{1, 2, 3, 4}, {1, 2, 3, 4, 5}};
+        int[][] emptyTheatreSeats = {{1, 2, 3, 4}, {1, 2, 3, 4, 5}};
         ArrayList<String> bookedSeats = new ArrayList<String>();
 
         Scanner sc = new Scanner(System.in);
@@ -29,7 +29,32 @@ public class Assign2 {
                 case 1:
 
                         System.out.println("Enter what row you would like: (A, B, C, or D) ");
-                        String rowSelect = sc.nextLine();
+                        String rowSelect = sc.nextLine().toUpperCase();
+
+                        int rowInt = 5;
+
+                        switch (rowSelect)
+                        {
+                            case "A":
+                                rowInt = 0;
+                            case "B":
+                                rowInt = 1;
+                            case "C":
+                                rowInt = 2;
+                            case "D":
+                                rowInt = 3;
+                        }
+
+                        if (rowSelect.isEmpty())
+                        {
+                            System.out.println("Row selection cannot be empty, please try again.");
+                            break;
+                        }
+                        if (rowInt > 4)
+                        {
+                            System.out.println("Please select a valid row (A, B, C or D) ");
+                            break;
+                        }
 
                         System.out.println("Enter what seat number you would like: (1, 2, 3, 4, or 5) ");
                         int seatSelect = sc.nextInt();
@@ -39,13 +64,14 @@ public class Assign2 {
 
                         if (bookedSeats.contains(seatBooked)) {
                             System.out.println("Sorry! That seat is booked. Please select another seat. ");
+                            System.out.println("The following seats are available in your selected row: ");
                         } else {
                             bookedSeats.add(seatBooked);
                             System.out.println("You have booked the following seat: " + seatBooked);
                             break;
                         }
-
                     break;
+
                 //Cancel
                 case 2:
                     System.out.println("Enter which of the following booked seats you would like to cancel: (Ex. 'A3') ");
@@ -59,7 +85,7 @@ public class Assign2 {
                     bookedSeats.remove(cancelSeat);
                     break;
 
-                    //Exit
+                //Exit
                 case 3:
                     menuLoop = false;
                     break;
