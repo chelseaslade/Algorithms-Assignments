@@ -60,6 +60,12 @@ public class Assign2 {
                         int seatSelect = sc.nextInt();
                         sc.nextLine();
 
+                        if (seatSelect > 5)
+                        {
+                            System.out.println("Please select a valid seat (1, 2, 3, 4 or 5) ");
+                            break;
+                        }
+
                         String seatBooked = rowSelect + seatSelect;
 
                         if (bookedSeats.contains(seatBooked)) {
