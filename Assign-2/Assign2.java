@@ -9,7 +9,13 @@ public class Assign2 {
         //2. Cancel seats
         //3. Retrieve initial seating charting
 
-        int[][] emptyTheatreSeats = {{1, 2, 3, 4}, {1, 2, 3, 4, 5}};
+        int[][] theatreSeats = {
+                {1, 2, 3, 4, 5}, //A
+                {1, 2, 3, 4, 5}, //B
+                {1, 2, 3, 4, 5}, //C
+                {1, 2, 3, 4, 5} //D
+        };
+
         ArrayList<String> bookedSeats = new ArrayList<String>();
 
         Scanner sc = new Scanner(System.in);
@@ -70,13 +76,21 @@ public class Assign2 {
 
                         if (bookedSeats.contains(seatBooked)) {
                             System.out.println("Sorry! That seat is booked. Please select another seat. ");
-                            System.out.println("The following seats are available in your selected row: ");
+
+                            System.out.println("Available seats in row " + rowSelect + ":");
+                            for (int i = 0; i < theatreSeats[rowInt].length; ++i) {
+                                String seat = rowSelect + theatreSeats[rowInt][i];
+                                if (!bookedSeats.contains(seat)) { // Only show unbooked seats
+                                    System.out.println(seat);
+
+                                }
+                            }
+                            break;
                         } else {
                             bookedSeats.add(seatBooked);
                             System.out.println("You have booked the following seat: " + seatBooked);
                             break;
                         }
-                    break;
 
                 //Cancel
                 case 2:
